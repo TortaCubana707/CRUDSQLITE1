@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Semana 7: estado del sistema (red, batería, alerta de sensor) -->
+        <TextView
+            android:id="@+id/txt_estado_sistema"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            tools:text="Conectado - guardando lecturas" />
+
+        <!-- ============================================== -->
+        <!-- SECCIÓN DE ACTUADORES (Controladores)          -->
+        <!-- ============================================== -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Control de Dispositivos"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="16dp"/>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/sw_led"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Control LED"
+            android:textSize="18sp"
+            android:layout_marginBottom="12dp"/>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/sw_relay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Control Relevador"
+            android:textSize="18sp"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Control de Pantalla LCD -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mensaje para Pantalla LCD"
+            android:textStyle="bold"
+            android:textColor="#555555"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/et_mensaje_lcd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Escribe un mensaje aquí"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
+            android:id="@+id/btn_enviar_lcd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enviar a LCD"
+            android:layout_marginBottom="24dp"/>
+
+        <Button
+            android:id="@+id/btn_refrigeracion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:minHeight="48dp"
+            android:text="Panel de enfriamiento FROSTER" />
+
+        <Button
+            android:id="@+id/btn_historial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Ver historial guardado (Room)" />
+
+        <!-- Línea divisoria -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#CCCCCC"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- ============================================== -->
+        <!-- SECCIÓN DE SENSORES (Lectura)                  -->
+        <!-- ============================================== -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sensores en Tiempo Real"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/txt_temp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Temperatura: -- °C"
+            android:textSize="18sp"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView
+            android:id="@+id/txt_hum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Humedad: -- %"
+            android:textSize="18sp"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView
+            android:id="@+id/txt_ldr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Luz Ambiental: -- %"
+            android:textSize="18sp"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView
+            android:id="@+id/txt_ir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Estado IR: --"
+            android:textSize="18sp"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView
+            android:id="@+id/txt_dist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Distancia: -- cm"
+            android:textSize="18sp"
+            android:layout_marginBottom="24dp"/>
+
+    </LinearLayout>
+</ScrollView>

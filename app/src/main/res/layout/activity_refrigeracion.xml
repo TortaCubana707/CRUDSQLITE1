@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Panel de enfriamiento FROSTER.
+
+    Los colores salen del tema (?attr/colorOnSurface, ?attr/colorPrimary) y no
+    van fijos en hexadecimal: el telefono esta en modo oscuro y un #333333 se
+    volveria ilegible sobre fondo negro.
+
+    fitsSystemWindows evita que el contenido quede debajo de la barra de estado
+    en Android 15 y 16, que dibujan de borde a borde por defecto.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:padding="16dp"
+    tools:context=".RefrigeracionActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="FROSTER - Enfriamiento del cluster"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_alerta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:padding="12dp"
+            android:textColor="?attr/colorError"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:text="Aviso: cerca del punto de rocio"
+            tools:visibility="visible" />
+
+        <!-- El numero que contesta la pregunta del proyecto -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enfriamiento logrado"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/txt_delta"
+            android:text="-- C bajo el ambiente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            tools:text="5.6 C bajo el ambiente" />
+
+        <!-- ============================================== -->
+        <!-- LECTURAS                                       -->
+        <!-- ============================================== -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="Lecturas"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_aire_salida"
+            android:text="Aire de entrada al rack: --"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="17sp"
+            tools:text="Aire de entrada al rack: 25.8 C" />
+
+        <TextView
+            android:id="@+id/txt_ambiente"
+            android:text="Ambiente: --"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="17sp"
+            tools:text="Ambiente: 31.4 C  ·  58 % HR" />
+
+        <TextView
+            android:id="@+id/txt_placa_fria"
+            android:text="Placa fria: --"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="17sp"
+            tools:text="Placa fria: 19.2 C" />
+
+        <TextView
+            android:id="@+id/txt_rocio"
+            android:text="Rocio: --"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:textSize="15sp"
+            tools:text="Rocio: 16.4 C  (margen 2.8 C)" />
+
+        <TextView
+            android:id="@+id/txt_potencia"
+            android:text="Consumo: --"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:textSize="15sp"
+            tools:text="Consumo: 142 W  ·  11.8 A" />
+
+        <!-- ============================================== -->
+        <!-- ESTADO DE LOS MODULOS                          -->
+        <!-- ============================================== -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="Modulos"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_celda_a"
+            android:text="Celda A: esperando datos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="17sp"
+            tools:text="Celda A: encendida  ·  disipador 52.1 C" />
+
+        <TextView
+            android:id="@+id/txt_celda_b"
+            android:text="Celda B: esperando datos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="17sp"
+            tools:text="Celda B: apagada  ·  disipador 31.0 C" />
+
+        <TextView
+            android:id="@+id/txt_ventiladores"
+            android:text="Ventiladores: --"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="17sp"
+            tools:text="Ventiladores: 100 %" />
+
+        <!-- ============================================== -->
+        <!-- CONTROL                                        -->
+        <!-- ============================================== -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="Control"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_objetivo"
+            android:text="Objetivo: --"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="17sp"
+            tools:text="Objetivo: 24.0 C" />
+
+        <SeekBar
+            android:id="@+id/barra_objetivo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="ASHRAE recomienda de 18 a 27 C en la entrada del equipo"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:textSize="13sp" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/sw_modo_manual"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:minHeight="48dp"
+            android:text="Modo manual"
+            android:textSize="18sp" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/sw_celda_a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:enabled="false"
+            android:minHeight="48dp"
+            android:text="Forzar celda A"
+            android:textSize="18sp" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/sw_celda_b"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:enabled="false"
+            android:minHeight="48dp"
+            android:text="Forzar celda B"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btn_auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:minHeight="48dp"
+            android:text="Volver a automatico" />
+
+    </LinearLayout>
+</ScrollView>

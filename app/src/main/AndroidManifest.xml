@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+        Semana 7: permiso propio para leer el historial desde otra aplicacion.
+        protectionLevel="normal" significa que el sistema lo concede al instalar,
+        sin preguntar; basta para declarar la intencion y evitar que cualquier
+        app lea sin pedirlo. Para algo sensible se usaria "signature", que solo
+        permite a apps firmadas con la misma llave.
+    -->
+    <permission
+        android:name="com.example.crudsqlite1.permission.LEER_HISTORIAL"
+        android:label="Leer el historial de sensores"
+        android:protectionLevel="normal" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CRUDSQLITE1">
+        <!-- Semana 7: expone la base del historial por IPC -->
+        <provider
+            android:name=".HistorialProvider"
+            android:authorities="com.example.crudsqlite1.historial"
+            android:exported="true"
+            android:readPermission="com.example.crudsqlite1.permission.LEER_HISTORIAL" />
+
+        <activity
+            android:name=".RefrigeracionActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".HistorialActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

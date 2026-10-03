@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Pantalla del historial local (Semana 6).
+    El RecyclerView ocupa todo el alto que sobra: layout_height="0dp" mas
+    layout_weight="1" dentro de un LinearLayout vertical.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:padding="16dp"
+    tools:context=".HistorialActivity">
+
+    <TextView
+        android:id="@+id/txt_total"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="?attr/colorOnSurface"
+        tools:text="248 lecturas guardadas en Room" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="10dp"
+        android:text="Cada lectura que llega de Firebase se guarda en la tabla historial_sensores. Lo más reciente arriba."
+        android:textSize="13sp"
+        android:textColor="?attr/colorOnSurfaceVariant" />
+
+    <TextView
+        android:id="@+id/txt_vacio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="24dp"
+        android:text="Todavía no hay lecturas guardadas. Abre la pantalla principal con la ESP32 publicando."
+        android:textSize="14sp"
+        android:textColor="?attr/colorOnSurfaceVariant"
+        android:visibility="gone" />
+
+    <!--
+        RecyclerView: solo crea las vistas que caben en pantalla y las RECICLA
+        al desplazarse. Con cientos de filas en Room la lista sigue fluida.
+    -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/lista_historial"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        tools:listitem="@layout/item_registro" />
+</LinearLayout>
